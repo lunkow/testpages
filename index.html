@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Warships—massive naval clashes. Take command of some of the most iconic warships from the early 20th century and experience naval battles like never before.</title>
+    <meta name="description" content="World of Warships—massive naval clashes. Take command of some of the most iconic warships from the early 20th century and experience naval battles like never before.">
+    <meta property="og:title" content="World of Warships">
+    <meta property="og:description" content="World of Warships—massive naval clashes. Take command of legendary vessels from the early 20th century and fight for domination on the high seas.">
+    <meta property="og:image" content="https://wowsp-wows-ru.wgcdn.co/static/0.2/images/wows_social_1.jpg">
+    <link rel="image_src" href="https://wowsp-wows-ru.wgcdn.co/static/0.2/images/wows_social_1.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="https://wows-landings-static.gcdn.co/glows-23950/src/favicon/safari-pinned-16x16.svg" color="#474747">
+
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+
+    <main>
+
+        <a id="linkNewUser" href="https://wargaming.net/registration/?game=wows&login_form=enabled" class="button button--green" target="_blank">
+            New user
+        </a>
+
+        <a id="linkRegisteredUser" href="https://wargaming.net/registration/?game=wows&login_form=enabled" class="button" target="_blank">
+            Registered user
+        </a>
+
+
+
+    </main>
+
+
+<style>
+    body {
+        position: relative;
+        font-size: 16px;
+        min-width: 320px;
+    }
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #000000;
+        opacity: 0.2;
+    }
+    
+
+    main {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-image: url(bg_section1_preview.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 0.7em 1.2em;
+
+        font-family: "warhelios-bold", sans-serif;
+        font-size: 1.714em;
+        line-height: 1;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        border: 1px solid rgba(255,255,255,0.3);
+
+
+        background-color: #ff6800;
+        border-radius: 3px;
+        opacity: 0.9;
+    }
+
+    a.button:hover {
+        opacity: 1;
+    }
+
+    a.button:active {
+        opacity: 0.3;
+    }
+
+    .button:first-child {
+        margin-right: 1em;
+    }
+
+    .button--green {
+        background-color: #066;
+    }
+
+</style>
+
+
+
+<script>
+    window.onload = function() {
+        var urlGets = getUrlGetParameters();
+        console.log(urlGets);
+
+        initLinksNewUser(urlGets);
+        initLinksRegisteredUser(urlGets);
+        
+
+
+
+    }
+
+    function getUrlGetParameters () {
+        if (window.location.search) {
+    
+            var urlGetParameters = {}
+            var urlParameters = window.location.search.slice(1).split('&');
+
+            urlParameters.forEach(function(item, index) {
+                item = item.split('=');
+                if (item[0]) {
+                    urlGetParameters[item[0]] = true;
+                    if (item[1]) {
+                        urlGetParameters[item[0]] = item[1];
+                    }
+                }
+                else {}
+                // console.log(urlGetParameters);
+            });
+        }
+
+        if (urlGetParameters) {
+            return urlGetParameters;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function initLinksNewUser (URLGetParameters) {
+        var link = document.getElementById('linkNewUser');
+        if (URLGetParameters['bonus']) {
+            link.href = 'https://wargaming.net/registration/?game=wows&' + 'bonus_mode=' + URLGetParameters['bonus'];
+
+        }
+        else {
+            link.href = "https://wargaming.net/registration/?game=wows&bonus_mode=HELLO&login_form=enabled";
+        }
+    }
+
+    function initLinksRegisteredUser (URLGetParameters) {
+        var link = document.getElementById('linkRegisteredUser');
+        if (URLGetParameters['bonus']) {
+            link.href = 'https://wargaming.net/shop/redeem/?' + 'bonus_mode=' + URLGetParameters['bonus'] + '&force_login=true';
+
+        }
+        else {
+            link.href = "https://wargaming.net/shop/redeem/?bonus_mode=DEFAULT_CODE&force_login=true";
+        }
+    }
+
+
+</script>
+    
+</body>
+</html>
